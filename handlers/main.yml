@@ -9,7 +9,7 @@
   listen: "enable grafana"
 
 - name: Enable and start SystemD service for Prometheus
-   systemd:
+  systemd:
     daemon_reload: yes
     name: "{{ prometheus.service }}"
     state: started
