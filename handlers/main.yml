@@ -14,7 +14,7 @@
     name: "{{ prometheus.service }}"
     state: started
     enabled: yes
-   listen:  "enable prometheus"
+  listen: "enable prometheus"
 
 - name: Enable and start SystemD service for Node Exporter
   systemd:
