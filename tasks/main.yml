@@ -1,16 +1,65 @@
 ---
 # tasks file
-- name: install apache
-  yum: name=httpd state=latest
 
-- name: copy httpd.conf template
-  template:
-    src: httpd.conf.j2
-    dest: /etc/httpd/conf/httpd.conf
-  notify: restart httpd
+- name: Download and extract Grafana to /opt
+  unarchive:
+    src: "{{ grafana-dl }}"
+    dest: "{{ dl }"
+    remote_src: yes
 
-- name: enable and start service
-  service:
-     name: httpd
-     enabled: yes
-     state: started
+#- name: Service creation for Grafana
+#  command: mv /opt/graf* "{{ grafana }}"
+#  template:
+#    src: "{{ grafana-service }}"
+#    dest: "{{ grafana-service-dest }}"
+  
+#- name: Configuration changes for Grafana
+#  template:
+#    src: "{{ grafana-service }}"
+#    dest: "{{ grafana-service-dest }}"
+#  notify: enable grafana
+
+- name: Download and extract Prometheus to /opt
+  unarchive:
+    src: "{{ prometheus-dl }}"
+    dest: "{{ dl }"
+    remote_src: yes
+    
+#- name: Service creation for Prometheus
+#  command: mv /opt/prom "{{ prometheus }}"
+#  template:
+#    src: "{{ prometheus-service }}"
+#    dest: "{{ prometheus-service-dest }}" 
+#  notify: enable prometheus  
+
+ - name: Download and extract Node-Exporter to /opt
+  unarchive:
+    src: "{{ node-exporter-dl }}"
+    dest: "{{ dl }"
+    remote_src: yes
+
+#- name: Service creation for Node-Exporter
+#  command: mv /opt/node* "{{ node-exporter }}"
+#  template:
+#    src: "{{ node-exporter-service }}"
+#    dest: "{{ node-exporter-dest }}"
+#  notify: enable node-exporter
+
+- name: Download and extract HA-Proxy to /opt
+  unarchive:
+    src: "{{ haproxy-dl }}"
+    dest: "{{ dl }"
+    remote_src: yes
+    
+#- name: Build HA-Proxy
+#  command: 
+
+    
+#- name: Redirect HA-Proxy Port:80 to Grafana:443
+  
+#- name: Service creation for HA-Proxy
+#  command: mv /opt/hapr* "{{ ha-proxy }}" 
+#  template:
+#    src: "{{ haproxy-service }}"
+#    dest: "{{ haproxy-service-dest }}"
+#  notify: enable haproxy
