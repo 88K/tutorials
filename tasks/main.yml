@@ -3,7 +3,7 @@
 
 - name: Download and extract Grafana to /opt
   unarchive:
-    src: "{{ grafana-dl }}"
+    src: https://dl.grafana.com/oss/release/grafana-5.4.3.linux-amd64.tar.gz
     dest: "{{ dl }}"
     remote_src: yes
 
@@ -21,7 +21,7 @@
 
 - name: Download and extract Prometheus to /opt
   unarchive:
-    src: "{{ prometheus-dl }}"
+    src: https://github.com/prometheus/prometheus/releases/download/v2.7.1/prometheus-2.7.1.linux-amd64.tar.gz
     dest: "{{ dl }}"
     remote_src: yes
     
@@ -32,7 +32,7 @@
 #    dest: "{{ prometheus-service-dest }}" 
 #  notify: enable prometheus  
 
-- name: Download and extract Node-Exporter to /opt
+- name: https://github.com/prometheus/node_exporter/releases/download/v0.17.0/node_exporter-0.17.0.linux-amd64.tar.gz
   unarchive:
     src: "{{ node-exporter-dl }}"
     dest: "{{ dl }}"
@@ -45,7 +45,7 @@
 #    dest: "{{ node-exporter-dest }}"
 #  notify: enable node-exporter
 
-- name: Download and extract HA-Proxy to /opt
+- name: https://www.haproxy.org/download/1.9/src/haproxy-1.9.4.tar.gz
   unarchive:
     src: "{{ haproxy-dl }}"
     dest: "{{ dl }}"
