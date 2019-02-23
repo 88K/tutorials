@@ -1,7 +1,7 @@
 ---
 # tasks file
 
-- name: Download and extract Grafana to /opt
+- name: Download and extract grafana to "/opt"
   unarchive:
     src: "{{ grafana_dl }}"
     dest: "{{ dl }}"
@@ -19,7 +19,7 @@
 #    dest: "{{ grafana-service-dest }}"
 #  notify: enable grafana
 
-- name: Download and extract Prometheus to /opt
+- name: Download and extract prometheus to "/opt"
   unarchive:
     src: "{{ prometheus_dl }}"
     dest: "{{ dl }}"
@@ -32,7 +32,7 @@
 #    dest: "{{ prometheus-service-dest }}" 
 #  notify: enable prometheus  
 
-- name: Download and extract Node-Eporter to /opt
+- name: Download and extract nodexporter to "/opt"
   unarchive:
     src: "{{ node_exporter_dl }}"
     dest: "{{ dl }}"
@@ -45,7 +45,7 @@
 #    dest: "{{ node-exporter-dest }}"
 #  notify: enable node-exporter
 
-- name: https://www.haproxy.org/download/1.9/src/haproxy-1.9.4.tar.gz
+- name: Download and extract haproxy to "/opt"
   unarchive:
     src: "{{ haproxy_dl }}"
     dest: "{{ dl }}"
