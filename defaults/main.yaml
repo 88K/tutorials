@@ -1,37 +1,38 @@
 ---
+
 # download variables
-grafana-dl: https://dl.grafana.com/oss/release/grafana-5.4.3-1.x86_64.rpm
-prometheus-dl: https://github.com/prometheus/prometheus/releases/download/v2.7.1/prometheus-2.7.1.linux-amd64.tar.gz
-node-exporter-dl: https://github.com/prometheus/node_exporter/releases/download/v0.17.0/node_exporter-0.17.0.linux-amd64.tar.gz
-haproxy-dl: https://www.haproxy.org/download/1.9/src/haproxy-1.9.4.tar.gz
+grafana_dl: https://dl.grafana.com/oss/release/grafana-5.4.3.linux-amd64.tar.gz
+prometheus_dl: https://github.com/prometheus/prometheus/releases/download/v2.7.1/prometheus-2.7.1.linux-amd64.tar.gz
+node_exporter_dl: https://github.com/prometheus/node_exporter/releases/download/v0.17.0/node_exporter-0.17.0.linux-amd64.tar.gz
+haprox_dl: https://www.haproxy.org/download/1.9/src/haproxy-1.9.4.tar.gz
 
 # extract location
 dl: /opt
 
 # application location
-grafana: /opt/grafana
-prometheus: /opt/prometheus
-node-exporter: /opt/node-exporter
-haproxy: /opt/haproxy
+grafana_location: /opt/grafana
+prometheus_location: /opt/prometheus
+node-exporter_location: /opt/node-exporter
+haproxy_location: /opt/haproxy
 
 # SystemD Templates
-grafana-service: grafana-systemd.j2
-prometheus-service: prometheus-systemd.j2
-node-exporter-service: node-exporter-sytemd.j2
-haproxy-service: haproxy-systemd.j2
+grafana_service_template: grafana-systemd.j2
+prometheus_service_template: prometheus-systemd.j2
+node-exporter_service_template: node-exporter-sytemd.j2
+haproxy_service_template: haproxy-systemd.j2
 
 # SystemD service destination
-grafana-service-dest: /etc/systemd/system/grafana.service
-prometheus-service-dest: /etc/systemd/system/prometheus.service
-node-exporter-dest: /etc/systemd/system/node-exporter.service
-haproxy-service-dest: /etc/systemd/system/haproxy.service
+grafana_service_dest: /etc/systemd/system/grafana.service
+prometheus_service_dest: /etc/systemd/system/prometheus.service
+node_exporter_dest: /etc/systemd/system/node-exporter.service
+haproxy_service_dest: /etc/systemd/system/haproxy.service
 
 # SystemD service names
-grafana-service: grafana
-prometheus-service: prometheus
-node-exporter-service: node-exporter
-haproxy.service: haproxy
+grafana_service_name: grafana
+prometheus_service_name: prometheus
+node_exporter_service_name: node-exporter
+haproxy_service_name: haproxy
 
 # Config files
-grafana-config: grafana-config.j2
-haproxy.config: haproxy-config.j2
+grafana_config: grafana-config.j2
+haproxy_config: haproxy-config.j2
