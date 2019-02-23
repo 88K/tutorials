@@ -3,7 +3,7 @@
 
 - name: Download and extract grafana to "/opt"
   unarchive:
-    src: "{{ grafana_dl }}"
+    src: "{{grafana_dl}}"
     dest: "{{ dl }}"
     remote_src: yes
 
@@ -21,7 +21,7 @@
 
 - name: Download and extract prometheus to "/opt"
   unarchive:
-    src: "{{ prometheus_dl }}"
+    src: "{{prometheus_dl}}"
     dest: "{{ dl }}"
     remote_src: yes
     
@@ -34,7 +34,7 @@
 
 - name: Download and extract nodexporter to "/opt"
   unarchive:
-    src: "{{ node_exporter_dl }}"
+    src: "{{node_exporter_dl}}"
     dest: "{{ dl }}"
     remote_src: yes
 
@@ -47,7 +47,7 @@
 
 - name: Download and extract haproxy to "/opt"
   unarchive:
-    src: "{{ haproxy_dl }}"
+    src: "{{haproxy_dl}}"
     dest: "{{ dl }}"
     remote_src: yes
     
