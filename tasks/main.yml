@@ -32,7 +32,7 @@
 #    dest: "{{ prometheus-service-dest }}" 
 #  notify: enable prometheus  
 
-- name: https://github.com/prometheus/node_exporter/releases/download/v0.17.0/node_exporter-0.17.0.linux-amd64.tar.gz
+- name: Download and extract Node-Eporter to /opt
   unarchive:
     src: "{{ node-exporter-dl }}"
     dest: "{{ dl }}"
