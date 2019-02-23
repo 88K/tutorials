@@ -32,7 +32,7 @@
 #    dest: "{{ prometheus-service-dest }}" 
 #  notify: enable prometheus  
 
- - name: Download and extract Node-Exporter to /opt
+- name: Download and extract Node-Exporter to /opt
   unarchive:
     src: "{{ node-exporter-dl }}"
     dest: "{{ dl }"
