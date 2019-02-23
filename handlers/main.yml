@@ -1,0 +1,49 @@
+---
+# handlers
+- name: Service creation and HTTPS configuration for Grafana
+  command: mv /opt/graf* "{{ grafana }}"
+  template:
+    src: "{{ grafana-service }}"
+    dest: "{{ grafana-service-dest }}"
+  systemd:
+    daemon_reload: yes
+    name: "{{ grafana.service }}"
+    state: started
+    enabled: yes
+  listen: 
+
+- name: Create SystemD service for Prometheus
+  command: mv /opt/prom "{{ prometheus }}"
+  template:
+    src: "{{ prometheus-service }}"
+    dest: "{{ prometheus-service-dest }}" 
+  systemd:
+    daemon_reload: yes
+    name: "{{ prometheus.service }}"
+    state: started
+    enabled: yes
+   listen:  
+
+- name: Create SystemD service for Node Exporter
+  command: mv /opt/node* "{{ node-exporter }}"
+  template:
+    src: "{{ node-exporter-service }}"
+    dest: "{{ node-exporter-dest }}"
+  systemd:
+    daemon_reload: yes
+    name: "{{ node-exporter.service }}"
+    state: started
+    enabled: yes
+  listen: 
+  
+- name: Create SystemD service for HA-Proxy
+  command: mv /opt/hapr* "{{ ha-proxy }}"
+  template:
+    src: "{{ haproxy-service }}"
+    dest: "{{ haproxy-service-dest }}"
+  systemd:
+    daemon_reload: yes
+    name: "{{ haproxy.service }}"
+    state: started
+    enabled: yes
+  listen: 
