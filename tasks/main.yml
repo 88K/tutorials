@@ -4,7 +4,7 @@
 - name: Download and extract Grafana to /opt
   unarchive:
     src: "{{ grafana-dl }}"
-    dest: "{{ dl }"
+    dest: "{{ dl }}"
     remote_src: yes
 
 #- name: Service creation for Grafana
@@ -22,7 +22,7 @@
 - name: Download and extract Prometheus to /opt
   unarchive:
     src: "{{ prometheus-dl }}"
-    dest: "{{ dl }"
+    dest: "{{ dl }}"
     remote_src: yes
     
 #- name: Service creation for Prometheus
@@ -35,7 +35,7 @@
 - name: Download and extract Node-Exporter to /opt
   unarchive:
     src: "{{ node-exporter-dl }}"
-    dest: "{{ dl }"
+    dest: "{{ dl }}"
     remote_src: yes
 
 #- name: Service creation for Node-Exporter
@@ -48,7 +48,7 @@
 - name: Download and extract HA-Proxy to /opt
   unarchive:
     src: "{{ haproxy-dl }}"
-    dest: "{{ dl }"
+    dest: "{{ dl }}"
     remote_src: yes
     
 #- name: Build HA-Proxy
