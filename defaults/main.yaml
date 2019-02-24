@@ -5,9 +5,6 @@ grafana_dl: https://dl.grafana.com/oss/release/grafana-5.4.3.linux-amd64.tar.gz
 node_exporter_dl: https://github.com/prometheus/node_exporter/releases/download/v0.17.0/node_exporter-0.17.0.linux-amd64.tar.gz
 haproxy_dl: https://www.haproxy.org/download/1.9/src/haproxy-1.9.4.tar.gz
 
-# extract location
-dl: /opt
-
 # application location
 grafana_location: /opt/grafana
 node-exporter_location: /opt/node-exporter

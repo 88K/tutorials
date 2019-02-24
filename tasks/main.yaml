@@ -1,18 +1,22 @@
 ---
 # tasks file
 
-- name: Download and extract grafana to "/opt"
+- name: Create a directory for Grafana installation
+  file:
+    name: "{{ grafana_location }}"
+    state: directory
+
+- name: Download and extract Grafana
   unarchive:
     src: "{{ grafana_dl }}"
-    dest: "{{ dl }}"
+    dest: "{{ grafana_location }}"
+    extra_opts:
+    - --strip-components 1
     remote_src: yes
-
-- name: Standardize folder name for Grafana
-  shell: mv /opt/graf* "{{ grafana_location }}"
 
 - name: Create a directory for SSL certificates
   file:
-    name: /opt/grafana/ssl
+    name: "{{ ssl_path }}"
     state: directory 
 
 - name: Create a SSL certificate for Grafana
