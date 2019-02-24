@@ -87,11 +87,21 @@
   notify: "enable and start haproxy"
 ###############################################################
 
-- name: Allow Ports 80,443,9100 on firewall
+- name: Allow HTTPS - Grafana
   firewalld:
-    port: 
-      - "{{haproxy_port}}"
-      - "{{grafana_secure_port}}"
-      - "{{node_exporter_port}}"
-    permanent: yes
+    service: https
+    permanent: true
     state: enabled
+
+- name: Allow HTTP - HA-Proxy
+  firewalld:
+    service: http
+    permanent: true
+    state: enabled
+
+- name: Allow Port 9100 - Node-Exporter
+  firewalld:
+    port: 9100/tcp
+    permanent: true
+    state: enabled
+
