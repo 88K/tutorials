@@ -45,7 +45,7 @@
 
 - name: Service creation for Node-Exporter
   template:
-    src: "{{ node-exporter_service_template }}"
+    src: "{{ node_exporter_service_template }}"
     dest: "{{ node_exporter_service_dest }}"
   notify: "enable node-exporter"
 

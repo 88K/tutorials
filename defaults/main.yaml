@@ -12,7 +12,7 @@ haproxy_location: /opt/haproxy
 
 # SystemD Templates
 grafana_service_template: grafana-systemd.j2
-node-exporter_service_template: node-exporter-sytemd.j2
+node_exporter_service_template: node-exporter-sytemd.j2
 haproxy_service_template: haproxy-systemd.j2
 
 # SystemD service destination
@@ -54,11 +54,9 @@ grafana_description: Grafana-Server
 grafana_work_dir: /opt/grafana
 grafana_exec_start: /opt/grafana/bin/grafana-server web
 
-# Nodeexporter service vars
+# Node_exporter service vars
 nodexporter_description: Node-Exporter
 nodexporter_work_dir: /opt/node_exporter
 nodexporter_exec_start: /opt/node_exporter/node_exporter
-
-# Prometheus service vars
 
 # HA-Proxy service vars
