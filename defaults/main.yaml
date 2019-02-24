@@ -40,8 +40,9 @@ haproxy_service_name: haproxy
 cert_name: grafana-cert.pem
 key_name: grafana-key.pem
 
-# SSL Path
+# SSL
 ssl_path: /opt/grafana/ssl
+ssl_subj: /C=IN/ST=MH/L=Mumbai/O=Global/OU=IT/CN=*.kalpesh.com
 
 # Misc
 grafana_protocol: https
