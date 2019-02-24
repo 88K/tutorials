@@ -47,3 +47,12 @@ ssl_path: /opt/grafana/ssl
 protocol: https
 port: 443
 domain: grafana.kalpessh.com
+
+# Grafana service vars
+grafana_description: Grafana-Server
+grafana_work_dir: /opt/grafana
+grafana_exec_start: /opt/grafana/bin/grafana-server
+
+# Prometheus service vars
+
+# HA-Proxy service vars

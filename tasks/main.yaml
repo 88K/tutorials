@@ -6,6 +6,8 @@
     src: "{{ grafana_dl }}"
     dest: "{{ dl }}"
     remote_src: yes
+
+- name: Standardize folder name for Grafana
   shell: mv /opt/graf* "{{ grafana_location }}"
 
 - name: Create OpenSSL certificates for Grafana
