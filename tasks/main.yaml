@@ -52,7 +52,7 @@
 
 #############################################################
 
-- name: Download and extract haproxy to "/opt"
+- name: Download and extract HA-Proxy
   unarchive:
     src: "{{haproxy_dl}}"
     dest: /tmp
@@ -69,6 +69,7 @@
       - gcc 
       - openssl-devel 
       - pcre-devel 
+      - systemd-devel
     state: latest
 
 - name: Build and install HA-Proxy
