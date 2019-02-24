@@ -90,8 +90,8 @@
 - name: Allow Ports: 80,443,9100 on firewall
   firewalld:
     port: 
-      - 80/tcp
-      - 443/tcp
-      - 9100/tcp
+      - "{{haproxy_port}}"
+      - "{{grafana_port}}"
+      - "{{node_exporter_port}}"
     permanent: yes
     state: enabled
