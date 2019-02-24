@@ -73,7 +73,7 @@
     state: latest
 
 - name: Build and install HA-Proxy
-  shell: cd /tmp/haproxy* && make "{{ make_args }}" && make install PREFIX="{{ haproxy_location }}"
+  shell: cd /tmp/haproxy* && make TARGET=linux2628 USE_SYSTEMD=1 USE_LIBCRYPT=1 USE_CRYPT_H=1 USE_ZLIB=1 USE_OPENSSL=1 USE_PCRE=1 && make install PREFIX="{{ haproxy_location }}"
 
 - name: Create HA-Proxy configuration file with Port redirect (80 to 443)  
   template:
