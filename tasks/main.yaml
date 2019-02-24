@@ -30,20 +30,26 @@
     dest: "{{ grafana_service_dest }}"
   notify: "enable and start Grafana"
   
+##########################################################
+- name: Create a directory for nodeexporter installation
+  file:
+    name: "{{ node_exporter_location }}"
+    state: directory
 
-#- name: Download and extract nodexporter to "/opt"
-#  unarchive:
-#    src: "{{node_exporter_dl}}"
-#    dest: "{{ dl }}"
-#    remote_src: yes
+- name: Download and extract nodexporter
+  unarchive:
+    src: "{{node_exporter_dl}}"
+    dest: "{{ node_exporter_location }}"
+    extra_opts: "--strip-components=1"
+    remote_src: yes
 
-#- name: Service creation for Node-Exporter
-#  command: mv /opt/node* "{{ node-exporter }}"
-#  template:
-#    src: "{{ node-exporter-service }}"
-#    dest: "{{ node-exporter-dest }}"
-#  notify: enable node-exporter
+- name: Service creation for Node-Exporter
+  template:
+    src: "{{ node_exporter_service }}"
+    dest: "{{ node_exporter_service_dest }}"
+  notify: "enable node-exporter"
 
+#############################################################
 #- name: Download and extract haproxy to "/opt"
 #  unarchive:
 #    src: "{{haproxy_dl}}"
@@ -62,3 +68,5 @@
 #    src: "{{ haproxy-service }}"
 #    dest: "{{ haproxy-service-dest }}"
 #  notify: enable haproxy
+
+###############################################################

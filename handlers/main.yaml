@@ -7,18 +7,18 @@
     enabled: yes
   listen: "enable and start Grafana"
 
-#- name: Enable and start SystemD service for Node Exporter
-#  systemd:
-#    daemon_reload: yes
-#    name: "{{ node-exporter.service }}"
-#    state: restarted
-#    enabled: yes
-#  listen: "enable node-exporter"
+- name: Enable and start SystemD service for Node Exporter
+  systemd:
+    daemon_reload: yes
+    name: "{{ node_exporter_service_name }}"
+    state: restarted
+    enabled: yes
+  listen: "enable node-exporter"
   
 #- name: Enable and start SystemD service for HA-Proxy
 #  systemd:
 #    daemon_reload: yes
 #    name: "{{ haproxy.service }}"
-#    state: started
+#    state: restarted
 #    enabled: yes
 #  listen: "enable haproxy"

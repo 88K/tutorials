@@ -7,7 +7,7 @@ haproxy_dl: https://www.haproxy.org/download/1.9/src/haproxy-1.9.4.tar.gz
 
 # application location
 grafana_location: /opt/grafana
-node-exporter_location: /opt/node-exporter
+node_exporter_location: /opt/node_exporter
 haproxy_location: /opt/haproxy
 
 # SystemD Templates
@@ -53,6 +53,11 @@ grafana_domain: grafana.kalpessh.com
 grafana_description: Grafana-Server
 grafana_work_dir: /opt/grafana
 grafana_exec_start: /opt/grafana/bin/grafana-server web
+
+# Nodeexporter service vars
+nodexporter_description: Node-Exporter
+nodexporter_work_dir: /opt/node_exporter
+nodexporter_exec_start: /opt/node_exporter/node_exporter
 
 # Prometheus service vars
 
