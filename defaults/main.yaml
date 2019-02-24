@@ -63,4 +63,5 @@ nodexporter_exec_start: /opt/node_exporter/node_exporter
 haproxy_description: HA-Proxy
 haproxy_work_dir: /opt/haproxy
 haproxy_exec_start: /opt/haproxy/sbin/haproxy 
+haproxy_exec_cfg: /opt/haproxy/haproxy.cfg
 
