@@ -4,7 +4,7 @@
   systemd:
     daemon_reload: yes
     name: "{{ grafana_service_name }}"
-    state: started
+    state: restarted
     enabled: yes
   listen: "enable and start Grafana"
 
@@ -12,7 +12,7 @@
 #  systemd:
 #    daemon_reload: yes
 #    name: "{{ node-exporter.service }}"
-#    state: started
+#    state: restarted
 #    enabled: yes
 #  listen: "enable node-exporter"
   
