@@ -1,5 +1,5 @@
 ---
-# handlers
+handlers:
 - name: Enable and start SystemD service for Grafana
   systemd:
     daemon_reload: yes

@@ -1,6 +1,5 @@
 ---
-# tasks file
-
+tasks: 
 - name: Create a directory for Grafana installation
   file:
     name: "{{ grafana_location }}"
@@ -30,7 +29,7 @@
   template:
     src: "{{ grafana_service_template }}"
     dest: "{{ grafana_service_dest }}"
-  notify: enable and start Grafana
+  notify: "enable and start Grafana"
   
 
 #- name: Download and extract nodexporter to "/opt"
