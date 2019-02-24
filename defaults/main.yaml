@@ -67,6 +67,6 @@ haproxy_exec_cfg: /opt/haproxy/haproxy.cfg
 
 # Ports
 haproxy_port: 80/tcp
-grafana_port: 443/tcp
+grafana_secure_port: 443/tcp
 node_exporter_port: 9100/tcp
 

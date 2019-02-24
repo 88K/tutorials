@@ -91,7 +91,7 @@
   firewalld:
     port: 
       - "{{haproxy_port}}"
-      - "{{grafana_port}}"
+      - "{{grafana_secure_port}}"
       - "{{node_exporter_port}}"
     permanent: yes
     state: enabled
