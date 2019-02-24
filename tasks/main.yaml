@@ -10,10 +10,12 @@
 - name: Standardize folder name for Grafana
   shell: mv /opt/graf* "{{ grafana_location }}"
 
-- name: Create OpenSSL certificates for Grafana
+- name: Create a directory for SSL certificates
   file:
     name: /opt/grafana/ssl
-    state: directory
+    state: directory 
+
+- name: Create a SSL certificate for Grafana
   shell: openssl req -newkey rsa:2048 -nodes -keyout "{{ ssl_path }}"/"{{ key_name }}" -x509 -days 365 -out "{{ ssl_path }}"/"{{ cert_name }}" -subj "{{ ssl_subj }}"
  
 - name: Enable HTTPS for Grafana
