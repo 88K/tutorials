@@ -75,26 +75,10 @@
 - name: Build and install HA-Proxy
   shell: cd /tmp/haproxy* && make "{{ make_args }}" && make install PREFIX="{{ haproxy_location }}"
 
-- name: Add a group for haproxy
-  group:
-    name: haproxy
-    state: present
-
-- name: Add a user for haproxy
-  user: 
-    name: haproxy
-    shell: /sbin/nologin
-    group: haproxy
-    state: present
- 
-- name: Allow HA-Proxy to use Port:80
-  shell: setcap CAP_NET_BIND_SERVICE=+eip /opt/haproxy/sbin/haproxy
-
 - name: Create HA-Proxy configuration file with Port redirect (80 to 443)  
   template:
     src: "{{ haproxy_config }}"
     dest: "{{ haproxy_config_dest }}"
-    
     
 - name: Service creation for "haproxy"
   template:
