@@ -4,7 +4,8 @@
   file:
     name: "{{ grafana_location }}"
     state: directory
-  tag: create_grafana_dir
+  tag: 
+    - create_grafana_dir
 
 - name: Download and extract Grafana
   unarchive:
@@ -12,37 +13,43 @@
     dest: "{{ grafana_location }}"
     extra_opts: "--strip-components=1"
     remote_src: yes
-  tag: download_and_extract_grafana
+  tag: 
+    - download_and_extract_grafana
 
 - name: Create a directory for SSL certificates
   file:
     name: "{{ ssl_path }}"
     state: directory 
-  tag: create_dir_ssl_cert
+  tag: 
+    - create_dir_ssl_cert
 
 - name: Create a SSL certificate for Grafana
   shell: openssl req -newkey rsa:2048 -nodes -keyout "{{ ssl_path }}"/"{{ key_name }}" -x509 -days 365 -out "{{ ssl_path }}"/"{{ cert_name }}" -subj "{{ ssl_subj }}"
-  tag: create_ssl_cert
+  tag: 
+    - create_ssl_cert
  
 - name: Enable HTTPS for Grafana
   template:
     src: "{{ grafana_config }}"
     dest: "{{ grafana_config_dest }}"
-  tag: enable_https_grafana
+  tag: 
+    - enable_https_grafana
 
 - name: Service creation for "grafana"
   template:
     src: "{{ grafana_service_template }}"
     dest: "{{ grafana_service_dest }}"
   notify: "enable and start Grafana"
-  tag: create_grafana_service
+  tag: 
+    - create_grafana_service
   
 ##########################################################
 - name: Create a directory for node-exporter installation
   file:
     name: "{{ node_exporter_location }}"
     state: directory
-  tag: create_node_exporter_dir
+  tag:
+    - create_node_exporter_dir
 
 - name: Download and extract node-exporter
   unarchive:
@@ -50,14 +57,16 @@
     dest: "{{ node_exporter_location }}"
     extra_opts: "--strip-components=1"
     remote_src: yes
-  tag: download_and_extract_node_exporter
+  tag:
+    - download_and_extract_node_exporter
 
 - name: Service creation for "node-exporter"
   template:
     src: "{{ node_exporter_service_template }}"
     dest: "{{ node_exporter_service_dest }}"
   notify: "enable and start node-exporter"
-  tag: create_node_exporter_service
+  tag: 
+    - create_node_exporter_service
 
 #############################################################
 
@@ -66,13 +75,15 @@
     src: "{{haproxy_dl}}"
     dest: /tmp
     remote_src: yes
-  tag: download_and_extract_haproxy
+  tag: 
+    - download_and_extract_haproxy
 
 - name: Create a directory for HA-Proxy installation
   file:
     state: directory
     name: "{{ haproxy_location }}"
-  tag: create_haproxy_dir
+  tag: 
+    - create_haproxy_dir
     
 - name: Install required tools to build HA-Proxy
   yum:
@@ -82,22 +93,26 @@
       - pcre-devel 
       - systemd-devel
     state: latest
-  tag: install_dev_tools
+  tag: 
+    - install_dev_tools
 
 - name: Build and install HA-Proxy
   shell: cd /tmp/haproxy* && make "{{ make_args }}" && make install PREFIX="{{ haproxy_location }}"
-  tag: build_and_install_haproxy
+  tag: 
+    - build_and_install_haproxy
 
 - name: Create HA-Proxy configuration file with Port redirect (80 to 443)  
   template:
     src: "{{ haproxy_config }}"
     dest: "{{ haproxy_config_dest }}"
-  tag: create_haproxy_config 
+  tag: 
+    - create_haproxy_config 
     
 - name: Service creation for "haproxy"
   template:
     src: "{{ haproxy_service_template }}"
     dest: "{{ haproxy_service_dest }}"
   notify: "enable and start haproxy"
-  tag: create_haproxy_service
+  tag: 
+    - create_haproxy_service
 ###############################################################

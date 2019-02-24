@@ -54,7 +54,7 @@ grafana_description: Grafana-Server
 grafana_work_dir: /opt/grafana
 grafana_exec_start: /opt/grafana/bin/grafana-server web
 
-# "noe-exporter" service vars
+# "node-exporter" service vars
 nodexporter_description: Node-Exporter
 nodexporter_work_dir: /opt/node_exporter
 nodexporter_exec_start: /opt/node_exporter/node_exporter
