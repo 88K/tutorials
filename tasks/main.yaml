@@ -87,7 +87,7 @@
   notify: "enable and start haproxy"
 ###############################################################
 
-- name: Allow Ports: 80,443,9100 on firewall
+- name: Allow Ports 80,443,9100 on firewall
   firewalld:
     port: 
       - "{{haproxy_port}}"
