@@ -52,7 +52,7 @@ grafana_domain: grafana.kalpessh.com
 # Grafana service vars
 grafana_description: Grafana-Server
 grafana_work_dir: /opt/grafana
-grafana_exec_start: /opt/grafana/bin/grafana-server
+grafana_exec_start: /opt/grafana/bin/grafana-server web
 
 # Prometheus service vars
 
