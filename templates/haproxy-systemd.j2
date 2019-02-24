@@ -5,7 +5,7 @@ After=network.target
 [Service]
 Type=simple
 EnvironmentFile={{haproxy_work_dir}}
-ExecStart={{haproxy_exec_start}}
+ExecStart={{haproxy_exec_start}} -f {{haproxy_exec_cfg}}
 Restart=on-failure
 # Other Restart options: or always, on-abort, etc
 

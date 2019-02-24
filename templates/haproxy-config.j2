@@ -11,4 +11,4 @@ defaults
 
   frontend example-frontend
   bind *:80
-  redirect location https://localhost:443
+  redirect scheme https code 301 if !{ ssl_fc }
