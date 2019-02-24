@@ -1,11 +1,11 @@
 [Unit]
-Description={{grafana_description}}
+Description={{ grafana_description }}
 After=network.target
 
 [Service]
 Type=simple
-WorkingDirectory={{grafana_work_dir}}
-ExecStart={{grafana_exec_start}}
+WorkingDirectory={{ grafana_work_dir }}
+ExecStart={{ grafana_exec_start }}
 Restart=on-failure
 # Other Restart options: or always, on-abort, etc
 

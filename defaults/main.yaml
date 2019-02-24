@@ -39,6 +39,9 @@ haproxy_service_name: haproxy
 # SSL cert files destination
 cert_name: grafana-cert.pem
 key_name: grafana-key.pem
+cert_name_path: /opt/grafana/ssl/grafana-cert.pem
+key_name_path: /opt/grafana/ssl/grafana-key.pem
+
 
 # SSL
 ssl_path: /opt/grafana/ssl
