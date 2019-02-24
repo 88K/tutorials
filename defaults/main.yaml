@@ -44,9 +44,9 @@ key_name: grafana-key.pem
 ssl_path: /opt/grafana/ssl
 
 # Misc
-protocol: https
-port: 443
-domain: grafana.kalpessh.com
+grafana_protocol: https
+grafana_port: 443
+grafana_domain: grafana.kalpessh.com
 
 # Grafana service vars
 grafana_description: Grafana-Server
