@@ -10,7 +10,9 @@ $ ansible-playbook install.yaml
 
 ### Applications: 
 ```
-Grafana (Port: 443), Node-Exporter (Port: 9100), HA-Proxy (Port: 80 > Port: 443)
+Grafana (Port: 443)
+Node-Exporter (Port: 9100)
+HA-Proxy (Port: 80 > Port: 443)
 ```
 ### SystemD Services:
 ```
