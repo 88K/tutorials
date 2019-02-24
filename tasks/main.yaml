@@ -1,5 +1,4 @@
 ---
-tasks: 
 - name: Create a directory for Grafana installation
   file:
     name: "{{ grafana_location }}"
