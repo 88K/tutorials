@@ -65,7 +65,10 @@
     
 - name: Install required tools to build HA-Proxy
   yum:
-    name: gcc openssl-devel pcre-devel 
+    name: 
+      - gcc 
+      - openssl-devel 
+      - pcre-devel 
     state: latest
 
 - name: Build and install HA-Proxy
