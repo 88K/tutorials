@@ -3,6 +3,7 @@ Description={{haproxy_description}}
 After=network.target
 
 [Service]
+Type=simple
 EnvironmentFile={{haproxy_work_dir}}
 ExecStart={{haproxy_exec_start}}
 Restart=on-failure
