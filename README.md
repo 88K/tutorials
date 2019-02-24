@@ -1,2 +1,2 @@
-# tutorials
-tutorials
+# Tutorials
+ansible-playbook install.yaml
