@@ -4,9 +4,9 @@
   file:
     name: "{{ grafana_location }}"
     state: directory
-  tag: 
+    tag: 
     - create_grafana_dir
-
+    
 - name: Download and extract Grafana
   unarchive:
     src: "{{ grafana_dl }}"
