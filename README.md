@@ -1,5 +1,5 @@
 ## Tutorial
-cd /etc/ansible/roles/ && git clone https://github.com/88K/tutorials.git && ansible-playbook install.yaml
+$ sudo cd /etc/ansible/roles/ && sudo git clone https://github.com/88K/tutorials.git && ansible-playbook install.yaml
 
 ## What will be the outcome of this tutorial?
 
