@@ -65,3 +65,5 @@ haproxy_work_dir: /opt/haproxy
 haproxy_exec_start: /opt/haproxy/sbin/haproxy 
 haproxy_exec_cfg: /opt/haproxy/haproxy.cfg
 
+# make args
+make_args: "TARGET=linux2628 USE_SYSTEMD=1 USE_LIBCRYPT=1 USE_CRYPT_H=1 USE_ZLIB=1 USE_OPENSSL=1 USE_PCRE=1"
