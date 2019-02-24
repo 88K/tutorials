@@ -86,3 +86,12 @@
     dest: "{{ haproxy_service_dest }}"
   notify: "enable and start haproxy"
 ###############################################################
+
+- name: Allow Ports: 80,443,9100 on firewall
+  firewalld:
+    port: 
+      - 80/tcp
+      - 443/tcp
+      - 9100/tcp
+    permanent: yes
+    state: enabled
