@@ -13,12 +13,12 @@
     name: "{{ node_exporter_service_name }}"
     state: restarted
     enabled: yes
-  listen: "enable node-exporter"
+  listen: "enable and start node-exporter"
   
-#- name: Enable and start SystemD service for HA-Proxy
-#  systemd:
-#    daemon_reload: yes
-#    name: "{{ haproxy.service }}"
-#    state: restarted
-#    enabled: yes
-#  listen: "enable haproxy"
+- name: Enable and start SystemD service for HA-Proxy
+  systemd:
+    daemon_reload: yes
+    name: "{{ haproxy_service_name }}"
+    state: restarted
+    enabled: yes
+  listen: "enable and start haproxy"

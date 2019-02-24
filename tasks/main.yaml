@@ -1,4 +1,5 @@
 ---
+####################################################
 - name: Create a directory for Grafana installation
   file:
     name: "{{ grafana_location }}"
@@ -24,49 +25,60 @@
     src: "{{ grafana_config }}"
     dest: "{{ grafana_config_dest }}"
 
-- name: Service creation for Grafana
+- name: Service creation for "grafana"
   template:
     src: "{{ grafana_service_template }}"
     dest: "{{ grafana_service_dest }}"
   notify: "enable and start Grafana"
   
 ##########################################################
-- name: Create a directory for nodeexporter installation
+- name: Create a directory for node-exporter installation
   file:
     name: "{{ node_exporter_location }}"
     state: directory
 
-- name: Download and extract nodexporter
+- name: Download and extract node-exporter
   unarchive:
     src: "{{node_exporter_dl}}"
     dest: "{{ node_exporter_location }}"
     extra_opts: "--strip-components=1"
     remote_src: yes
 
-- name: Service creation for Node-Exporter
+- name: Service creation for "node-exporter"
   template:
     src: "{{ node_exporter_service_template }}"
     dest: "{{ node_exporter_service_dest }}"
-  notify: "enable node-exporter"
+  notify: "enable and start node-exporter"
 
 #############################################################
-#- name: Download and extract haproxy to "/opt"
-#  unarchive:
-#    src: "{{haproxy_dl}}"
-#    dest: "{{ dl }}"
-#    remote_src: yes
-    
-#- name: Build HA-Proxy
-#  command: 
 
+- name: Download and extract haproxy to "/opt"
+  unarchive:
+    src: "{{haproxy_dl}}"
+    dest: /tmp
+    remote_src: yes
+
+- name: Create a directory for HA-Proxy installation
+  file:
+    name: "{{ haproxy_location }}"
     
-#- name: Redirect HA-Proxy Port:80 to Grafana:443
-  
-#- name: Service creation for HA-Proxy
-#  command: mv /opt/hapr* "{{ ha-proxy }}" 
-#  template:
-#    src: "{{ haproxy-service }}"
-#    dest: "{{ haproxy-service-dest }}"
-#  notify: enable haproxy
+- name: Install gcc to buil HA-Proxy
+  yum:
+    name: gcc
+    state: latest
+
+- name: Build and install HA-Proxy
+  shell: cd /tmp/haproxy* && make TARGET=linux2628 && make install PREFIX="{{ haproxy_location }}"
+
+- name: Create HA-Proxy configuration file with Port redirect (80 to 443)  
+  template:
+    src: "{{ haproxy_config }}"
+    dest: "{{ haproxy_config_dest }}"
+    
+- name: Service creation for "haproxy"
+  template:
+    src: "{{ haproxy_service_template }}"
+    dest: "{{ haproxy_service_dest }}"
+  notify: "enable and start haproxy"
 
 ###############################################################
