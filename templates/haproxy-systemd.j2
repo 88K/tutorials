@@ -3,8 +3,6 @@ Description={{haproxy_description}}
 After=network.target
 
 [Service]
-User=haproxy
-Group=haproxy
 Type=forking
 WorkingDirectory={{haproxy_work_dir}}
 ExecStart={{haproxy_exec_start}} -f {{haproxy_exec_cfg}}
