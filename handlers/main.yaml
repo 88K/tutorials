@@ -3,31 +3,23 @@
 - name: Enable and start SystemD service for Grafana
   systemd:
     daemon_reload: yes
-    name: "{{ grafana.service }}"
+    name: "{{ grafana_service_name }}"
     state: started
     enabled: yes
-  listen: "enable grafana"
+  listen: "enable and start Grafana"
 
-- name: Enable and start SystemD service for Prometheus
-  systemd:
-    daemon_reload: yes
-    name: "{{ prometheus.service }}"
-    state: started
-    enabled: yes
-  listen: "enable prometheus"
-
-- name: Enable and start SystemD service for Node Exporter
-  systemd:
-    daemon_reload: yes
-    name: "{{ node-exporter.service }}"
-    state: started
-    enabled: yes
-  listen: "enable node-exporter"
+#- name: Enable and start SystemD service for Node Exporter
+#  systemd:
+#    daemon_reload: yes
+#    name: "{{ node-exporter.service }}"
+#    state: started
+#    enabled: yes
+#  listen: "enable node-exporter"
   
-- name: Enable and start SystemD service for HA-Proxy
-  systemd:
-    daemon_reload: yes
-    name: "{{ haproxy.service }}"
-    state: started
-    enabled: yes
-  listen: "enable haproxy"
+#- name: Enable and start SystemD service for HA-Proxy
+#  systemd:
+#    daemon_reload: yes
+#    name: "{{ haproxy.service }}"
+#    state: started
+#    enabled: yes
+#  listen: "enable haproxy"
