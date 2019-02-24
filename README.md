@@ -1,5 +1,6 @@
 ## Tutorial
 ```
+# Please use CentOS-7 for this tutorial
 $ cd /etc/ansible/roles/ 
 $ sudo git clone https://github.com/88K/tutorials.git
 $ cd tutorials
