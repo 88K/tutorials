@@ -60,6 +60,7 @@
 
 - name: Create a directory for HA-Proxy installation
   file:
+    state: directory
     name: "{{ haproxy_location }}"
     
 - name: Install gcc to buil HA-Proxy
