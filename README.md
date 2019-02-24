@@ -1,4 +1,4 @@
-## Tutorials
+## Tutorial
 ansible-playbook install.yaml
 
 ## What will be the outcome of this tutorial?
