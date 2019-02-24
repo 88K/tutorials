@@ -29,7 +29,7 @@ provisioning = conf/provisioning
 #################################### Server ##############################
 [server]
 # Protocol (http, https, socket)
-protocol = "{{ grafana_protocol }}"
+protocol = {{ grafana_protocol }}
 #protocol = http
 
 # The ip address to bind to, empty will bind to all interfaces
@@ -37,11 +37,11 @@ http_addr =
 
 # The http port  to use
 #http_port = 3000
-http_port = "{{ grafana_port }}"
+http_port = {{ grafana_port }}
 
 # The public facing domain name used to access grafana from a browser
 #domain = localhost
-domain = "{{ grafana_domain }}"
+domain = {{ grafana_domain }}
 
 # Redirect to correct domain if host header does not match domain
 # Prevents DNS rebinding attacks
@@ -60,8 +60,8 @@ static_root_path = public
 enable_gzip = false
 
 # https certs & key file
-cert_file = "{{ cert_name }}"
-cert_key = "{{ key_name }}"
+cert_file = {{ cert_name }}
+cert_key = {{ key_name }}
 
 # Unix socket path
 socket = /tmp/grafana.sock
