@@ -1,0 +1,34 @@
+---
+- name: Download and extract HA-Proxy
+  unarchive:
+    src: "{{haproxy_dl}}"
+    dest: /tmp
+    remote_src: yes
+
+- name: Create a directory for HA-Proxy installation
+  file:
+    state: directory
+    name: "{{ haproxy_location }}"
+    
+- name: Install required tools to build HA-Proxy
+  yum:
+    name: 
+      - gcc 
+      - openssl-devel 
+      - pcre-devel 
+      - systemd-devel
+    state: latest
+
+- name: Build and install HA-Proxy
+  shell: cd /tmp/haproxy* && make TARGET=linux2628 USE_SYSTEMD=1 USE_LIBCRYPT=1 USE_CRYPT_H=1 USE_ZLIB=1 USE_OPENSSL=1 USE_PCRE=1 && make install PREFIX="{{ haproxy_location }}"
+
+- name: Create HA-Proxy configuration file with Port redirect (80 to 443)  
+  template:
+    src: "{{ haproxy_config }}"
+    dest: "{{ haproxy_config_dest }}"
+    
+- name: Service creation for "haproxy"
+  template:
+    src: "{{ haproxy_service_template }}"
+    dest: "{{ haproxy_service_dest }}"
+  notify: "enable and start haproxy"

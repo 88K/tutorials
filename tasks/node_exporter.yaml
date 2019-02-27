@@ -1,0 +1,18 @@
+---
+- name: Create a directory for node-exporter installation
+  file:
+    name: "{{ node_exporter_location }}"
+    state: directory
+
+- name: Download and extract node-exporter
+  unarchive:
+    src: "{{node_exporter_dl}}"
+    dest: "{{ node_exporter_location }}"
+    extra_opts: "--strip-components=1"
+    remote_src: yes
+
+- name: Service creation for "node-exporter"
+  template:
+    src: "{{ node_exporter_service_template }}"
+    dest: "{{ node_exporter_service_dest }}"
+  notify: "enable and start node-exporter"
