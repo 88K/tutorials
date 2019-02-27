@@ -11,7 +11,7 @@ $ cd tutorials
 # If you want to install everything
 $ ansible-playbook install.yaml
 
-#If you want to execute specific tags
+# If you want to execute specific tags
 $ ansible-playbook install.yaml -t tag_name
 
 Tags:
